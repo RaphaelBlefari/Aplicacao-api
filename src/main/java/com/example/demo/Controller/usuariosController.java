@@ -12,8 +12,23 @@ import java.util.Collection;
 public class usuariosController {
 
 
+    private class MensagemAPI{
+
+        public  String Mensagem;
+
+        public String getMensagem() {
+            return Mensagem;
+        }
+
+        public void setMensagem(String mensagem) {
+            Mensagem = mensagem;
+        }
+    }
+
     @RequestMapping(value = "/busca", method = RequestMethod.GET)
-    public String BuscaUsuarios(){
-        return "sistema ok";
+    public MensagemAPI BuscaUsuarios(){
+        MensagemAPI msapi = new   MensagemAPI();
+        msapi.setMensagem("Este é um retorno ok da API");
+        return msapi;
     }
 }
