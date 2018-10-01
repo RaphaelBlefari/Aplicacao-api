@@ -24,13 +24,13 @@ node {
     }
 
     stage('mvn test') {
-            bat 'mvn test'   
+            bat '${mvnHome}/bin/mvn test'   
     }
 
 
     stage('Build') {
         milestone()
-        bat 'mvn package'
+        bat '${mvnHome}/bin/mvn package'
     }
 
     stage('Deploy') {
