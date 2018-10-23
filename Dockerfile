@@ -1,9 +1,9 @@
-FROM registry.viavarejo.com.br:5000/vv-server-jre:latest
+FROM openjdk:8-jre-alpine
 ENV TZ=America/Sao_Paulo
 RUN echo ${TZ} > /etc/timezone
-EXPOSE 8082
-RUN adduser -Dh /home/vvjornada vvjornada
-USER vvjornada
+EXPOSE 9092
+RUN adduser -Dh /home/root root
+USER root
 RUN export ENCRYPT_KEY=IMSYMMETRIC
-CMD ["java", "-Xmx768m", "-Xms512m", "-jar", "/app/vv-carrinho.jar", "--spring.profiles.active=docker"]
-ADD target/vv-carrinho.jar /app/vv-carrinho.jar
+CMD ["java", "-jar", "app/Aplicacao-Base-0.0.2.jar"]
+ADD target/Aplicacao-Base-0.0.2.jar /app/Aplicacao-Base-0.0.2.jar
